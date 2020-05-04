@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Magnum</title>
+<title>Analysound</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -56,7 +56,7 @@
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
       </div>
-      
+
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-main-collapse">
         <ul class="nav navbar-nav">
@@ -77,16 +77,50 @@
       <hr>
     </div>
     <div class="row">
-      <div class="col-md-12 text-center"><img src="img/about.jpg" class="img-responsive"></div>
       <div class="col-md-8 col-md-offset-2">
         <div class="about-text">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare.</p>
-          <a href="#portfolio" class="btn btn-defaultt btn-lg page-scroll">Gönder</a> </div>
+        <style media="screen">
+
+        </style>
+        <div>
+          <span id = "custom-text">Henüz seçili dosya yok</span>
+          <br />
+          <input type="file" id="real-life" style="display:none"/>
+          <button type="button" id="custom-button" class="btn btn-defaultt">DOSYA SEÇ</button>
+
+          <script type="text/javascript">
+            const realFileButton = document.getElementById("real-life");
+            const customButton = document.getElementById("custom-button");
+            const customText = document.getElementById("custom-text");
+
+            customButton.addEventListener("click", function(){
+              realFileButton.click();
+            });
+
+            realFileButton.addEventListener("change", function(){
+              if(realFileButton.value) {
+                customText.innerHTML = realFileButton.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+              } else {
+                customText.innerHTML = "No file choosen yet";
+              }
+
+            });
+          </script>
+        </div>
+        <div>
+            <a href="#portfolio" id="send_button" class="btn btn-defaultt btn-lg page-scroll" onclick="move()">Gönder</a> </div>
+        </div>
+      </div>
+      
+    </div>
+    <br><br>
+    <div class="progress">
+      <div id="progress_bar"></div>
       </div>
     </div>
   </div>
 </div>
+
 <!-- Portfolio Section -->
 <div id="portfolio">
   <div class="container">
@@ -98,132 +132,143 @@
       <ul class="cat">
         <li>
           <ol class="type">
-            <li><a href="#" data-filter="*" class="active">Text</a></li>
-            <li><a href="#" data-filter=".graphic">Konu</a></li>
-            <li><a href="#" data-filter=".illustration">Kelime Analizi</a></li>
-            <li><a href="#" data-filter=".photography">vsvsvs...</a></li>
+            <li><a onclick="show_text()">Metin</a></li>
+            <li><a onclick="show_topic()">Konu Tahmini</a></li>
+            <li><a onclick="show_words()">Kelime Analizi</a></li>
+            <li><a onclick="show_quality()">Konuşma Kalitesi</a></li>
           </ol>
         </li>
+
       </ul>
       <div class="clearfix"></div>
     </div>
-    <div class="row">
-      <div class="portfolio-items">
-        <div class="col-sm-6 col-md-3 col-lg-3 graphic">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/01-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/01-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 illustration">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/02-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/02-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 graphic">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/03-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/03-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 graphic">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/04-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/04-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 illustration">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/05-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/05-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 photography">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/06-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/06-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 photography">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/07-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/07-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 graphic">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/08-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/08-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 illustration">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/09-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/09-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 photography">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/10-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/10-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 photography">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/11-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/11-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 graphic">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/12-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/12-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+
+  <div id="metin" style="display: none;">
+    <p>Evet günaydın arkadaşlar, nasılsınız? Mikrofon taktım sonuca bakacağım eğer memnun kalırsam belki piazzada ses kaydını paylaşabilirim. <br>
+      Bir deneyeceğim bakalım ses kalitesi nasıl olacak. Evet arkadaşlar geçen derste bilgisayar mimarisi kısmında umuyorum ki bilgisayarla ilgili <br>
+      olarak algımızı biraz daha üst noktalar taşıdık. Tabi bilgisayar dediğimiz şey sadece donanımdan ibaret değil onun üzerinde kocaman bir <br>
+      işletim sistemi var. O algımızı biraz daha ilerletmek için bugunkü dersin konusu işletim sistemleri. Ne olduğunu nasıl vazife gördüğünü <br>
+       nelerden oluştuğunu temel düzeyde konular işleyeceğiz. Ben işletim sistemleri ve bilgisayar ağları dersini de bu bölümde veriyorum. <br>
+       İşletim sistemleri oldukça zor bir ders. Umuyorum ki bu iki saat içinde aldığınız dersle o dersten daha çok istifade edersiniz. Bu derste <br>
+       kitaba çok bağlı kalmayacağım o yüzden zaten ses kaydı meselesini düşündüm. Sebebi şu işletim sistemlerini bakarken şu iki ayrımı yapmaya çalışacağım<br>
+      İşletim sistemleri ne yapar dediğimiz zamam, iki adet temel görevi vardır.<br>
+     
+    </p>
+  </div>
+
+  <div id="konu" style="display: none;">
+    <p>Ses Kaydında En Çok Geçen Kelimeler <br>
+     11 - sistem <br>
+     5 - işletim <br>
+     4 - bilgisayar <br>
+     3 - ses <br>
+     2 - görev 
+    
+      En çok geçen kelimelerden yola çıkarak, ses kaydının tahmin edilen konusu: <br>
+     İşletim Sistemleri
+    </p>
+  </div>
+
+  <div id="analiz" style="display: none;">
+    <p>Toplam kelime sayısı: 149 <br>
+      Toplam harf sayısı: 1128 <br>
+      Tekil kelime sayısı: 98 <br></p>
+  </div>
+
+  <div id="kalite" style="display: none;">
+      <p>
+        Konuşma kalitesi: %65.77 <br>
+        <li>%0 - %20 Çok kötü</li>
+        <li>%20 - %40 Kötü</li>
+        <li>%40 - %60 Normal</li>
+        <li>%60 - %80 İyi</li>
+        <li>%0 - %20 Çok iyi</li>
+      </p>
   </div>
 </div>
 
+<script>
+function show_text() {
+  $("#kalite").hide(0);
+  $("#analiz").hide(0);
+  $("#konu").hide(0);
+  $("#metin").show(1000);
+}
+
+function show_topic() {
+  $("#kalite").hide(0);
+  $("#analiz").hide(0);
+  $("#metin").hide(0);
+  $("#konu").show(1000);
+}
+
+function show_words() {
+  $("#kalite").hide(0);
+  $("#konu").hide(0);
+  $("#metin").hide(0);
+  $("#analiz").show(1000);
+}
+
+function show_quality() {
+  $("#analiz").hide(0);
+  $("#konu").hide(0);
+  $("#metin").hide(0);
+  $("#kalite").show(1000);
+}
 
 
+</script>
+
+
+
+
+
+<style>
+#metin {
+  background-color: #f6f6f6;
+  text-align: center;
+  width: 100%;
+  color: #000000;
+  height: 80px;
+}
+
+#konu {
+  background-color: #f6f6f6;
+  text-align: center;
+  width: 100%;
+  color: #000000;
+  height: 80px;
+}
+
+#analiz {
+  background-color: #f6f6f6;
+  text-align: center;
+  width: 100%;
+  color: #000000;
+  height: 80px;
+}
+
+#kalite {
+  background-color: #f6f6f6;
+  text-align: center;
+  width: 100%;
+  color: #000000;
+  height: 80px;
+}
+
+#progress {
+  width: 100%;
+  background-color: gray;
+}
+
+#progress_bar {
+  width: 1%;
+  height: 30px;
+  background-color: #191970;
+}
+
+</style>
 
 
 <div id="footer">
@@ -233,13 +278,29 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
-<script type="text/javascript" src="js/bootstrap.js"></script> 
-<script type="text/javascript" src="js/SmoothScroll.js"></script> 
-<script type="text/javascript" src="js/nivo-lightbox.js"></script> 
-<script type="text/javascript" src="js/jquery.isotope.js"></script> 
-<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
-<script type="text/javascript" src="js/contact_me.js"></script> 
+
+<script>
+function move() {
+  var elem = document.getElementById("progress_bar");
+  var width = 1;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++;
+      elem.style.width = width + '%';
+    }
+  }
+}
+</script>
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/SmoothScroll.js"></script>
+<script type="text/javascript" src="js/nivo-lightbox.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="js/contact_me.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
